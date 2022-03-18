@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio module - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Studio module</h1>
+        <p>
+          Studio creates metadata describing the structure of the application.
+          Created data is in a separate storage.
+          Metadata must be exported in order for it to load into the application.
+        </p>
+        <img class="image-view" src="../images/blog/module-studio-01.png" alt="Studio module">
+        <p>
+          You can export all data at once using <code>Meta/Export</code> top menu.
+          Or you can export individual entities (classes, views, navigation) from editing form.
+          This is faster, but metadata integrity may be compromised if changes were somewhere else.
+        </p>
+        <p>
+          Metadata will be saved in JSON format at specified path and automatically reloaded into server’s memory.
+        </p>
+        <p>
+          You can export anywhere into <code>meta</code> folder.
+          However, the application will only be loaded from <code>meta/app</code> folder.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

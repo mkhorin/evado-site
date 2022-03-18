@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intro - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Introduction</h1>
+        <p>
+          <a href="https://github.com/mkhorin/evado" target="_blank">Evado Declarative Framework
+            is open source software</a> written in modern JavaScript using high-performance Node.js and MongoDB servers.
+          This tutorial demonstrates step-by-step creation of a web app,
+          not by writing code, but by declaring entities and relationships.
+        </p>
+        <img class="image-view" src="../images/blog/front-ajax-02.jpg" alt="Front app module">
+        <p>
+          Let's create a blog. This application has entities that are familiar to everyone (article, category, comments)
+          and simple relations between them. Required functionality:
+        </p>
+        <ul>
+          <li>create and edit articles</li>
+          <li>upload images and add them to articles</li>
+          <li>create and edit article categories (an article may belong to different categories)</li>
+          <li>comment on articles (comment without logging in)</li>
+          <li>support multi-user access</li>
+          <li>restrict role-based actions:
+            <ul>
+              <li><b>author</b> - write and edit own articles</li>
+              <li><b>editor</b> - edit other articles</li>
+              <li><b>administrator</b> - full access</li>
+            </ul>
+          </li>
+          <li>create client interfaces for reading and managing data</li>
+          <li>store application metadata in version control system</li>
+        </ul>
+        <p>
+          <a href="https://github.com/mkhorin/evado-app-blog">Source code of the finished application</a>
+          is available in a public repository.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navigation - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Navigation</h1>
+        <p>
+          In Office, in the <b>development</b> mode, all classes are available as they are (subject to permissions).
+          However, it is better to have a specific structure that matches the functionality of the app.
+          It can set the order of classes, grouping, display on demand or filtering objects according to various criteria.
+        </p>
+        <div class="alert-warning alert">
+          Navigation is a <a href="https://github.com/mkhorin/evado-meta-navigation" target="_blank">separate metadata model</a>
+          used to create a convenient user menu.
+        </div>
+        <p>
+          Navigation data consists of sections and nodes.
+          Section is a set of nodes arranged in a specific order.
+          For example, <b>main</b> section is responsible for creating the Office side menu.
+          Node is a link to a site page.
+          Each node can have child nodes, forming a tree-like menu hierarchy.
+        </p>
+        <p>
+          Go to Studio and select <b>Navigation sections</b> from side menu.
+          Create a <b>main</b> section. Create a <b>articles</b> node.
+          This will be parent node for lists of articles in various statuses.
+          Go to <b>Children</b> tab and create a <b>publicArticles</b> node.
+          Select <b>article</b> in the Class field and select <b>publicList</b> in the View field.
+        </p>
+        <div class="alert-warning alert">
+          Node code name must be unique within parent section.
+        </div>
+        <p>
+          Create another child node <b>allArticles</b>.
+          Choose <b>article</b> class without a view, so that users can access articles in any status.
+        </p>
+        <p>
+          Export metadata and go to Office.
+          Nodes of the main navigation section will appear in the side menu.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main entities - E-Learning - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Main entities</h1>
+        <p>
+          The application entities can be divided into three interrelated parts: system participants, training materials and tasks.
+          The participants are teachers and students.
+          The training materials are lessons and questions on them that test the knowledge gained.
+          The tasks are answers that students offer to questions, and a discussion of these answers.
+        </p>
+        <p>
+          Go to Studio module and create main app classes.
+          First of all, create classes that describe the participants.
+          Create a Teacher class. Add an User attribute with the System User type.
+          This attribute will store the teacher's connection with the user who is logged in to the application.
+          Create a Student class and also add an User attribute.
+        </p>
+        <img class="image-view" src="../images/elearning/studio-01.png" alt="Classes">
+        <p>
+          Next, create a Lesson class that contains the lesson information and its name.
+          To do this, add a string attribute Name and a text attribute Content.
+        </p>
+        <p>
+          Each lesson should contain questions to test the learning.
+          To do this, create a Question class. Add a text attribute Text, which will store the content of the question.
+          To link a question to a lesson, create a reference attribute Lesson.
+        </p>
+        <p>
+          Create a Task class that describes the student's answer to the question, discussion and evaluation of this answer.
+          Add a Student reference attribute, which will link the task to a specific student.
+          Add a Question reference attribute to link a task to a question.
+          Add a text attribute for the response content.
+          And finally, add an integer attribute Grade for a teacher to evaluate an answer.
+          Go to the Enumeration tab and create text labels for grades.
+        </p>
+        <p>
+          When performing a task, before or after its assessment, questions will inevitably arise, both students and teachers.
+          Make it possible to comment on a task.
+        </p>
+        <p>
+          Create a Comment class. Add a Task reference attribute to link to a task and a text attribute for the content of the comment.
+          In addition, you need to display some service data.
+          To do this, add a Creator (_creator) attributes, which will display the user who created the object,
+          and a Creation Date (_createdAt) with the Date type and the Local Date view.
+          Attributes describing service data should be read-only.
+        </p>
+        <p class="alert-warning alert">
+          The local date representation takes into account the client's time zone.
+          Thus, the representation of the same date will be different for clients from different time zones.
+        </p>
+        <p>
+          Next, you need to create calculated link attributes.
+          An attribute with the Back Reference  type does not store the link value, but extracts it from the specified relationship.
+        </p>
+        <p>
+          Go back to the Task class and create the Comments attribute as a back reference to the Comment class.
+          This multiple link allows you to find all comments that link to a task.
+          Go to the Question class and create a Task back reference to get all tasks related to a question.
+          Go to the Lesson class and create a Questions back reference to get all questions referring to a lesson.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/elearning.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

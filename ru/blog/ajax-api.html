@@ -1,0 +1,73 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AJAX API - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Внешний API</h1>
+        <p>
+          Есть два варианта разработки собственного интерфейса взаимодействия с приложением .
+          Первый вариант - это создание полноценного модуля
+          <a href="https://github.com/mkhorin/areto" target="_blank">фремворка Areto</a>.
+          Он позволяет интегрироваться в систему на базовом уровне.
+          Смотрите <a href="https://github.com/mkhorin/evado-app-blog/tree/master/module/front-pages" target="_blank">пример такой реализации</a>.
+        </p>
+        <p>
+          Второй вариант - это доступ к функционалу приложения через внешний API.
+          Он позволяет создавать и размещать интерфейс как вместе, так и отдельно от сервера приложения.
+          Смотрите <a href="https://github.com/mkhorin/evado-app-blog/tree/master/module/front-ajax" target="_blank">пример такой реализации</a>.
+        </p>
+        <img class="image-view" src="../../images/blog/front-ajax-02.jpg" alt="Внешний API">
+        <p>
+          Клиентский скрипт отправляет AJAX-запрос к серверу и обрабатывает полученные данные.
+          Если данные требуют авторизованного доступа, то клиент предварительно должен войти в систему.
+          Все неидентифицированные запросы получают гостевую роль.
+        </p>
+        <p>
+          Чтобы гости могли увидеть статьи, добавьте разрешение метаданных <b>Читать</b>
+          для представлений <b>publicList</b> и <b>publicView</b> класса Статья.
+          Не забудьте перезапустить безопасность после изменений.
+        </p>
+        <div class="filename">Пример получения списка объектов</div>
+        <pre class="code"></pre>
+        <div class="filename">Пример получения объекта</div>
+        <pre class="code"></pre>
+        <div class="filename">Пример создания объекта</div>
+        <pre class="code"></pre>
+        <div class="filename">Пример изменения объекта</div>
+        <pre class="code"></pre>
+        <div class="filename">Пример удаления объекта</div>
+        <pre class="code"></pre>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Workflow</h1>
+        <p>
+          An application often requires that an class instance be in a special state that distinguishes it from others.
+          In general, this is solved using explicitly set values.
+          For example, article class has status attribute.
+          This is enough to search and filter, but not enough to use custom views and access control.
+        </p>
+        <p>
+          Workflow creates a separate structure for managing the state of objects.
+          State element defines the possible state of class instance.
+          Each instance stores <b>_state</b> service attribute that defines the current state.
+          Transition is a state change rule.
+          It allows you to set a condition for changing one state to another.
+        </p>
+        <div class="alert-warning alert">
+          Create class attributes with the same names to access service attributes.
+          For example, <b>_state</b>, <b>_createdAt</b>, <b>_updateAt</b>.
+          You cannot change service attribute value using a form.
+        </div>
+        <p>
+          Open comment class and create a <b>_state</b> attribute with String type.
+          Check <b>Read only</b> box. Select <b>State</b> in the View type field
+          to display a status label, not just a code name.
+        </p>
+        <p>
+          Open comment class and select States tab.
+          Create a <b>hidden</b> state. In this state, comments are not displayed in public part of website.
+          Check <b>Read only object mode</b> box to prevent users from changing comment data in this state.
+        </p>
+        <p>
+          Create a <b>pending</b> state. In this state, comments will be waiting for moderation.
+        </p>
+        <p>
+          Create a <b>published</b> state.
+          In this state, comments will be published.
+          Check <b>Read-only object mode</b> box to prevent comment changes.
+        </p>
+        <p>
+          Go to Transitions tab.
+          Create a <b>publish</b> transition.
+          Add <b>hidden</b> and <b>pending</b> states in the Start states field.
+          This defines the object state in which transition will be possible.
+          Select <b>published</b> in the Final state field.
+          This defines transition result as the new object state.
+        </p>
+        <div class="alert-warning alert">
+          Use verbs as transition code names.
+          This emphasizes transition effect on object state.
+        </div>
+        <p>
+          Create a <b>hide</b> transition.
+          Add <b>pending</b> and <b>published</b> in the Start states field.
+          Select <b>hidden</b> state in the Final state field.
+        </p>
+        <p>
+          Create a <b>moderate</b> transition to submit a comment for review.
+          Check <b>Null start state</b> box to make transition available if object does not have any state.
+          Add <b>hidden</b> in the Start states field.
+          Select <b>pending</b> in the Final state field.
+        </p>
+        <p>
+          Export metadata and go to Office. Create or open a comment.
+          Transition buttons will appear in the form top panel depending object state.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comment class - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Comment class</h1>
+        <p>
+          Create a <b>comment</b> class. It will store user comments on articles.
+        </p>
+        <p>
+          Create a <b>name</b> attribute with String type.
+          It will store commentator name. Check <b>Required</b> box.
+        </p>
+        <p>
+          Create a <b>email</b> attribute with String type.
+          It will store commentator's email address.
+          Check <b>Required</b> box.
+          Go to validation tab of the attribute form and add <b>Email</b> validator.
+          It will check string against the email address format.
+        </p>
+        <p>
+          Create a <b>content</b> attribute with Text type.
+          It will store comment text. Check <b>Required</b> box.
+          Go to validation tab of the attribute form and add <b>String</b> validator.
+          Set <b>Maximum length</b> parameter to 256 characters.
+        </p>
+        <p>
+          Create a <b>article</b> attribute with Reference type.
+          It will keep a comment link to article.
+          Select <b>article</b> class in the Reference class field.
+          Check <b>Required</b> box.
+        </p>
+        <div class="alert-warning alert">
+          The <b>Back reference</b> type defines a relation through an attribute of a reference class.
+          If article photos are retrieved from the links that are kept in article itself,
+          then article comments are retrieved from article link that is kept in comment.
+        </div>
+        <p>
+          Open the article class and create the comments attribute with Back reference type.
+          Select <b>comment</b> class in the Reference class field
+          and select <b>article</b> attribute in the Reference attribute field.
+          Check <b>Multiple</b> box.
+          One article may have many comments.
+          Uncheck the <b>Add</b> and <b>Remove</b> commands because a comment cannot be attached to another article.
+        </p>
+        <p>
+          Export metadata and go to Office. Create an article and add comments to it.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

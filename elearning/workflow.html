@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intro - E-Learning - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Workflow</h1>
+        <p>
+          Each object of a class can be in a certain state.
+          This allows you to define special functionality for some objects.
+        </p>
+        <p>
+          Go to the Task class and create a service string attribute State (_state), which will contain the state value of a specific task.
+          Next, select the States tab, which contains a list of all possible states of objects.
+        </p>
+        <p>
+          Create a Draft state, which means that the student is working on the task.
+          This state will be assigned to all new objects by default.
+          Create a Waiting state, which means that the work is finished and waiting for verification.
+          Next, create a Checking state, which means that the teacher has started checking the solution.
+          And finally, the final state is Closed when the score is set. In this state, an object is read-only.
+        </p>
+        <img class="image-view" src="../images/elearning/studio-02.png" alt="Class states">
+        <p>
+          Transitions are used to change states. Transitions determine how a state can change.
+          A transition can have several initial states, including an empty one, but only one final state.
+        </p>
+        <ul>
+          <li>Create a Ready transition from the initial Draft state to the final Waiting state.</li>
+          <li>Create a Check transition from the Waiting state to the Checking state.</li>
+          <li>Create a Complete transition from the Checking state to the Closed state.</li>
+          <li>Create a Rework transition from the Checking state to the Draft state.</li>
+          <li>Create a Recheck transition from the Closed state to the Checking state.</li>
+        </ul>
+        <p>
+          Export the created metadata using the button on the top panel.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/elearning.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

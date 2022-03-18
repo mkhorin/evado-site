@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access control - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Access control</h1>
+        <p>
+          Evado Declarative Framework controls resource access rights using a role-based system (RBAC).
+          This allows you to configure convenient and flexible restriction rules.
+        </p>
+        <p>
+          Permissions in the RBAC system describe what can be done in the app.
+          For example, create articles, update articles, delete comments and so on.
+        </p>
+        <p>
+          Roles group permissions into one.
+          For example, an author has permissions to create and edit articles,
+          and a Moderator role has permission to delete comments.
+        </p>
+        <p>
+          Assignments bind roles to users.
+          For example, if Adam user is assigned the Author role, then Adam
+          will be able to do what Author is allowed to do (create and edit articles).
+        </p>
+        <p>
+          Go to Administration module and select Security -> Roles menu.
+          By default, the app has two roles.
+          Admin role has full access to app functionality.
+          Guest role does not have any permissions and is assigned automatically to unauthenticated users.
+        </p>
+        <p>
+          The blog requires additional roles.
+          Writer role allows you to create and manage your own articles and photos.
+          Editor role allows you to manage all Office data.
+        </p>
+        <h4>Writer role</h4>
+        <p>
+          Create a Writer role. Add Office module and Upload files permissions.
+          Go to Meta permissions menu and create permission to manage your own articles and photos:
+        </p>
+        <img class="image-view" src="../images/blog/meta-permission-01.png" alt="Metadata permissions">
+        <p>
+          Allow type allows action. Deny type prohibits action.
+          For example, Allow to create or Deny to create.
+          Targets field defines metadata that the permission affects.
+        </p>
+        <p>
+          A rule defines the possibility of applying permission.
+          This happens at the time of requesting access to target.
+          Meta author rule checks whether user is creator of the object that he is trying to access.
+          If there was no rule, a user with Writer role could have full access to any article.
+        </p>
+        <h4>Editor role</h4>
+        <p>
+          Create an Editor role.
+          Add Office module and Upload files permissions.
+          Go to Meta permissions menu.
+          Create <b>full access</b> permission to Office data and add Editor role to it.
+        </p>
+        <div class="alert-warning alert">
+          Click <b>Restart security</b> button on the top panel for changes to take effect.
+        </div>
+        <h4>Users</h4>
+        <p>
+          Go to <b>Users</b> menu.
+          Create a <b>Walter</b> user and add the Writer role to him.
+          Create an <b>Edward</b> user and add the Editor role to him.
+          Check <b>Verified</b> box to consider email address verified and allow user to work in system.
+          Now you can log in as a new user and check the assigned roles in action.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

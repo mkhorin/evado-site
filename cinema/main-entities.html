@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main entities - Cinema - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Main entities</h1>
+        <p>Go to Studio and create main app classes.</p>
+        <img class="image-view" src="../images/cinema/entities-01.png" alt="Main app classes">
+        <h4>Hall</h4>
+        <p>
+          Create a <code>hall</code> class that defines a room where a movie is shown.
+          Cinema can consist of several halls.
+        </p>
+        <p>
+          Create string <code>name</code> and <code>description</code> attributes.
+          Check <b>Required</b> and <b>Unique</b> boxes for the <code>name</code> attribute.
+        </p>
+        <h4>Seat</h4>
+        <p>Create a <code>seat</code> class that defines a place for which a ticket is for sale.</p>
+        <p>
+          Create a required reference <code>hall</code> attribute to bind seat to hall.
+          Check <b>Eager loading</b> box to load hall instance with seat.
+          Create required integer <code>row</code> and <code>column</code> attributes.
+          Add a <b>Unique</b> validator with a filter <code>"hall, row"</code> for the <code>column</code> attribute.
+          This will check the seat uniqueness inside hall and row.
+        </p>
+        <h4>Poster</h4>
+        <p>Create a <code>poster</code> class that defines a movie cover.</p>
+        <p>
+          Create a required string <code>title</code> attribute.
+          Create a required file <code>file</code> attribute.
+          Add <b>File</b> behavior for the class.
+          This will provide loading and saving of files. Check <b>Image only</b> box.
+          Select <code>title</code> in <b>Filename attribute</b> field.
+          This will automatically set an uploaded file name to title.
+        </p>
+        <h4>Movie</h4>
+        <p>Create a <code>movie</code> class that defines film characteristics.</p>
+        <p>
+          Create a required unique string <code>title</code> attribute.
+          Create a text <code>description</code> attribute.
+          Create a required integer <code>duration</code> attribute.
+          It defines the movie length in minutes.
+          Create a reference <code>poster</code> attribute.
+        </p>
+        <h4>Pricing</h4>
+        <p>
+          Create a <code>pricing</code> class defines a ticket price.
+          A hall may have several pricing.
+          You can choose an appropriate pricing when creating a screening.
+          For example, special prices may be set on weekends and holidays or for a new blockbuster.
+        </p>
+        <p>
+          Create a required string <code>name</code> attribute.
+          Add a <b>Unique</b> validator with a <code>"hall"</code> filter to it.
+          This guarantees the name uniqueness inside a hall.
+          Create a required integer <code>value</code> attribute.
+          This defines ticket price.
+          Create a required reference <code>hall</code> attribute. Check <b>Eager loading</b> box.
+        </p>
+        <h4>Seat price</h4>
+        <p>
+          Create a <code>seatPrice</code> class that defines a special ticket price for a seat.
+          For example, for the first and last rows or places of increased comfort.
+        </p>
+        <p>
+          Create a required integer <code>value</code> attribute.
+          This defines a ticket price value.
+          Create a required reference <code>seat</code> attribute.
+          This defines a place for which the special price applies.
+          Check <b>Eager loading</b> box.
+        </p>
+        <p>
+          Create a reference <code>pricing</code> attribute.
+          Check <b>Required</b>, <b>Read only</b>, and <b>Eager loading</b> boxes.
+          Here we see a contradiction in logic.
+          The <b>Required</b> checkbox requires data, and the <b>Read only</b> checkbox prevents receiving client data.
+          Indeed, you cannot directly create an object of the <code>seatPrice</code> class.
+          However, this can be done using a reference attribute of the <b>pricing</b> class,
+          because it passes automatic binding to the owner instance.
+        </p>
+        <h4>Screening</h4>
+        <p>Create a <code>screening</code> class that defines characteristics of a movie demonstration.</p>
+        <p>
+          Create a <code>date</code> attribute.
+          It defines date and time of a screening.
+          Select <b>Date</b> type and <b>Local date and time</b> view type.
+          The local date is tied to an event place, so users will see the date relative to their time zone.
+        </p>
+        <p>
+          Create a boolean <code>active</code> attribute.
+          It defines an availability of screening instance for ticket sales.
+          Create required reference <code>movie</code>, <code>hall</code>, <code>pricing</code> attributes.
+          Select <b>Read only</b> box for the <b>hall</b> attribute.
+          This allows you to create screenings only from a hall.
+        </p>
+        <h4>Ticket</h4>
+        <p>Create a <code>ticket</code> class that defines tickets sold.</p>
+        <p>
+          Create an integer <code>price</code> attribute.
+          It defines a price for which a ticket was sold.
+          Check <b>Read only</b> box. Add an <b>Assigned value</b> behavior.
+          Specify a configuration of
+          <a href="https://github.com/mkhorin/evado-app-cinema/blob/master/component/meta/expression/TicketPriceExpression.js" target="_blank">expression class</a>
+          <code>{"Class":"component/meta/expression/TicketPriceExpression"}</code> and check <b>On create</b> box.
+          The ticket price is set at the time of creation and remains unchanged in the future.
+        </p>
+        <p>
+          Create required <code>screening</code> and <code>seat</code> reference attributes.
+          This binds a ticket to seat and screening.
+        </p>
+        <p>
+          Export metadata and check created entities in the Office module.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Модуль Офис - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Модуль Офис</h1>
+        <p>
+          В модуле Офис в режиме разработки <code>NODE_ENV=development</code> в боковом меню доступен пункт <b>_classes</b>,
+          в котором отображаются все классы приложения.
+        </p>
+        <img class="image-view" src="../../images/blog/module-office-01.png" alt="Модуль Офис">
+        <p>Перейдите в класс Статья. В основном окне отобразится список объектов класса. Создайте новую статью.</p>
+        <p>
+          Обратите внмание, что в поле <b>Статус</b> требуется ввести конкретное значение
+          (<code>draft, published, archived</code>), иначе возникнет ошибка при сохранении объекта.
+          Это неудобно. Гораздо лучше дать пользователю выбрать из предзаданного списка.
+          Для этого вернитесь в Студию, откройте атрибут <b>Статус</b> класса <b>Статья</b>
+          и измените тип представления на <b>Радио-кнопки</b>.
+          Экспортируйте измененния прямо из формы класса.
+        </p>
+        <img class="image-view" src="../../images/blog/create-article-01.png" alt="Создать статью">
+        <div class="alert-warning alert">
+          Данные Офиса связаны с метаданными через кодовое имя элемента (класса, атрибута).
+          Если вы удалите атрибут или измените имя, то данные в Офисе будут недоступны, но останутся в хранилище.
+          Метаданные играют роль интерфейса для данных Офиса.
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>

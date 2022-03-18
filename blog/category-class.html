@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Category class - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Category class</h1>
+        <p>
+          Return to Studio and create a <b>category</b> class.
+          It will contain articles on specific topics.
+        </p>
+        <p>
+          Create a <b>name</b> attribute with String type.
+          It will store the category name.
+          Check <b>Required</b> and <b>Unique</b> boxes.
+          Select search tab and check <b>Common searchable</b> and <b>Select searchable</b> boxes.
+        </p>
+        <p>
+          Next, you need to link articles and categories.
+          One article can be placed in several categories.
+          Go to <b>article</b> class and create a <b>categories</b> attribute with Reference type.
+          Check <b>Multiple</b> box.
+        </p>
+        <p>
+          Go to <b>category</b> class and create a <b>publicArticles</b> attribute with Back reference type.
+          Select <b>article</b> class in the Reference class field.
+          Then select <b>categories</b> attribute in the Reference attribute field.
+          Check <b>Multiple</b> and <b>Read only</b> boxes.
+          You cannot add or remove articles using this attribute, only managing categories from article itself.
+        </p>
+        <p>
+          Now a category displays all articles that have this category.
+          To filter public articles, you must create a view of the article class.
+          A view extends and overrides class parameters.
+          For example, when displaying objects in a list, the <b>list</b> view can display only some class attributes.
+          When creating an object, the <b>create</b> view can add validators.
+          When editing an object, the <b>edit</b> view may prohibit modification of some attributes and more.
+        </p>
+        <p>
+          Open <b>article</b> class and go to Views tab. Create a <b>publicList</b> view.
+          Specify condition <code>{"status": "published"}</code> for selecting articles in the Filter field.
+          Only articles with <b>published</b> status will be displayed in this view.
+        </p>
+        <p>
+          Save the view. Then go to Attributes tab and add attributes that should be in this view.
+        </p>
+        <p>
+          Go to <b>category</b> class and open <b>publicArticles</b> attribute.
+          Go to Relation tab. Select <b>publicList</b> view in the List view field,.
+        </p>
+        <p>
+          Go to <b>category</b> class and create a <b>publicArticleCounter</b> attribute with Calculated type.
+          Set calculation algorithm in the Expression field:
+        </p>
+        <pre class="code"></pre>
+        <p>
+          See <a href="https://github.com/mkhorin/evado-meta-base/blob/master/calc/Calc.js" target="_blank">Calc</a>
+          for more details.
+        </p>
+        <div class="alert-warning alert">
+          Calculated attribute is not stored in database, but is calculated on every request.
+          This affects performance and imposes certain restrictions on searches and selections.
+        </div>
+        <p>
+          Export metadata and go to Office.
+          Create categories and articles. Add a category to an article.
+          Change status of article and check how the list of public articles in category has changed.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

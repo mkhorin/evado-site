@@ -1,0 +1,284 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Life or Building a Web App Without Coding - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <h1>Sweet Life or Building a Web App Without Coding</h1>
+    <p>
+      Let's create a simple social network for guests to communicate at a virtual party.
+      Registered users can make friends, create toasts, discuss and share them with other participants.
+      In the classic MVC architecture, this is done by writing appropriate models, controllers, and views.
+      But let's try to do without coding.
+    </p>
+    <p>
+      Take the free open source
+      <a href="https://github.com/mkhorin/evado" target="_blank">Evado Declarative Framework</a>,
+      which describes domain entities and relationships between them through a web interface.
+      The minimum environment required to work is <b>Node.js</b> and <b>MongoDB</b> servers.
+      The IDE is Visual Studio Code. However, the latter is not necessary if we do not plan to write a code.
+    </p>
+    <p>
+      Copy <a href="https://github.com/mkhorin/evado-app-boilerplate" target="_blank">app boilerplate</a>
+      from github repository to the local <code>/party</code> folder (hereinafter, all file paths will be relative to
+      it) and install dependencies.
+    </p>
+    <pre class="code"></pre>
+    <p>
+      Configuration files are located in <code>config</code> folder.
+      When application starting, the choice of file depends on the value of the global variable <code>NODE_ENV</code>.
+      Each of configurations inherits data from <code>config/default</code>.
+      Change application and database name (by default connects to <code>localhost:27017</code> without password).
+      That's it, the configuration is complete. Next, run installation script:
+    </p>
+    <pre class="code"></pre>
+    <p>
+      Then launch the application (you can also launch it from Visual Studio - Start app configuration):
+    </p>
+    <pre class="code"></pre>
+    <p>
+      In development mode, the application is available at <code>http://localhost:3000</code>.
+      You can log in as Adam with administrator rights, which was created during installation by default settings.
+    </p>
+    <pre class="code"></pre>
+    <h2>Quick overview of the Framework</h2>
+    <p>
+      Declarative Framework Evado consists of several basic modules and components,
+      which are determined by configuration settings.
+      All modules have a unified web interface.
+      Studio module creates and edits metadata,
+      which describe entities (domain models) and relationships between them.
+      Actual data is stored as JSON files in the <code>metadata/app</code> folder.
+      Office module operates the application by creating and editing objects based on metadata.
+      Administration module manages system users, security and other application parameters.
+    </p>
+    <img class="image-view" src="../images/party/front-00.png" alt="Evado Framework Modules">
+    <h2>Party preparation</h2>
+    <p>
+      Take care of the guests of the party first. Go to the Studio module and create a Member class.
+      Each member must be directly associated with a system user.
+      To do this, add a required and unique User attribute.
+    </p>
+    <p>
+      Create a Toast class so party members can generate content.
+      Add a string attribute Title and a text attribute Content.
+      To bind a toast to a member, add an Author reference attribute.
+      A reference type specifies that its value is a reference to another object.
+      In this case, to an object of the Member class.
+    </p>
+    <p>
+      Toast is not always meant for the general public.
+      Sometimes it is still a draft, and the author only decides how to present his thought brighter.
+      And sometimes only a few can understand the full depth of the toast and everyone does not need to see it.
+      To do this, add the string attribute Access. Go to the Enumerations tab and create an enumeration with access
+      value items:
+    </p>
+    <ul>
+      <li>Nobody</li>
+      <li>Only for friends</li>
+      <li>For everyone</li>
+    </ul>
+    <p>
+      Wise, ridiculous, provocative or funny opinions always evoke emotions in response.
+      The party should be able to discuss toast.
+      Create a Comment class with the required text attribute Text and reference attributes Toast and Author.
+      They will keep links to the toast to which the comment relates and the member who created the comment.
+      For the author, specify the default value as the member associated with the current system user.
+    </p>
+    <div class="alert alert-warning">
+      In addition to the values of the created attributes, entity objects contain some system data.
+      For example, creation date, modification date, object creator and others.
+      You must also describe them in the metadata to display.
+    </div>
+    <p>
+      Create a Creation Date attribute with the codename <code>_createdAt</code> and the Local Date and Time view type.
+      Local date means the time zone will be applied.
+    </p>
+    <div class="alert alert-warning">
+      An attribute with a codename beginning with an underscore is systemic and read-only.
+    </div>
+    <p>
+      To make two people friends, you need to get the consent of both.
+      At our party, we will adhere to this equality.
+      One person creates a friendship, the other can accept or reject it.
+      Create a Friend class that will define friendship.
+      Add required reference attributes Inviter and Invitee.
+      To define the state of friendship, add the <code>_state</code> string attribute with the State view type.
+    </p>
+    <div class="alert alert-warning">
+      The Evado framework implements a state machine for entity objects.
+      Each object is in a certain state and can be transferred to another according to the specified transitions.
+    </div>
+    <p>
+      Go to the States tab and create three states:
+    </p>
+    <ul>
+      <li>Pending decision (default)</li>
+      <li>Friendship accepted</li>
+      <li>Friendship rejected</li>
+    </ul>
+    <p>
+      Go to the Transitions tab and create a couple of transitions:
+    </p>
+    <ul>
+      <li>
+        Accept friendship
+        <ul>
+          <li>Start states Pending Decision and Friendship Rejected</li>
+          <li>Final state Friendship Accepted</li>
+        </ul>
+      </li>
+      <li>
+        Reject friendship
+        <ul>
+          <li>Start states Pending Decision and Friendship Accepted</li>
+          <li>Final state Friendship Rejected</li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      After making a decision, the invitee can change the state of friendship.
+      On the other hand, the inviter, as the creator of the object, can delete it at any time.
+    </p>
+    <img class="image-view" src="../images/party/front-01.png" alt="Evado Framework Studio Module">
+    <h2>Back references</h2>
+    <p>
+      How can a user find all his comments,
+      if the link of the comment to the user is stored in the Comment class?
+      There is a backref for this. It defines a relationship through an attribute in the referenced class.
+    </p>
+    <p>
+      To display all comments on the toast, add the Comments backref to the Comment class and the Toast attribute.
+      To display all of the member's toasts, add the Toasts backref to the Toast class and the Author attribute.
+    </p>
+    <p>
+      To display accepted friend members...
+      And here the foreboding strikes the first blow that declarations alone will not be enough.
+      Indeed, in order to find such participants, the following is necessary:
+    </p>
+    <ul>
+      <li>first, find friends who are in the Friendship Accepted state and the current member is either an inviter or an
+        invitee;
+      </li>
+      <li>second, find participants (except for the current one) who are associated with found friends.</li>
+    </ul>
+    <p>
+      The Studio web interface only creates a relationship by one attribute and adds a selection condition.
+      For a complex relationship, you will have to write your own implementation and connect it to the Filter field
+      <code>{"Class":"component/meta/relation/FriendMembers"}</code>.
+    </p>
+
+    <h2>Exporting metadata</h2>
+    <p>
+      Export the created metadata to get it in the app.
+      The export (import) button is located on the top panel of the Studio module.
+      You can choose any target folder, but note that the application will only be loaded from <code>metadata/app</code>.
+      After successful export everything is ready for operation in the Office module.
+    </p>
+    <img class="image-view" src="../images/party/front-02.png" alt="Evado Framework Office Module">
+    <h2>Self registration</h2>
+    <p>
+      For self-registration of users in the configuration file <code>console/default</code>
+      in the <code>params</code> section set <code>enableSignUp: true</code>.
+      After completing the registration of a new user, you need to create an object of the Member class.
+      To do this, create a registration event listener in the Administration module.
+    </p>
+    <pre class="code"></pre>
+    <p>And add a handler to it.</p>
+    <pre class="code"></pre>
+    <h2>Access rights</h2>
+    <p>
+      Basic feature of any multi-user application is the differentiation of access rights.
+      The Evado Framework implements a role-based access control system (RBAC).
+    </p>
+    <p>
+      A user can be assigned one or more roles.
+      Each role contains permissions that describe what can be done.
+      For example, create an object or access a module.
+      A permission can be locked by a rule that determines whether this permission will be applied.
+      For example, if for permission to edit an object, impose a rule that checks whether
+      the current user is the creator of the object, then only the author will receive the edit right.
+    </p>
+    <div class="alert alert-warning">
+      If you have lost access through the web interface (for example, by removing administrator rights), do not panic!
+      Change security with console script <code>console/security</code>.
+    </div>
+    <p>
+      In the Administration module go to the Security - Roles section.
+      Initially, the application template defines three roles:
+    </p>
+    <ul>
+      <li>administrator (full access to data)</li>
+      <li>user (role for authenticated users)</li>
+      <li>guest (role for anonymous users)</li>
+    </ul>
+    <p>
+      That's enough for our party. After logging in, the User role will be assigned by default.
+      There is no need to set it explicitly.
+    </p>
+    <div class="alert alert-warning">
+      Remember to restart the security for the changes to take effect (button in the top panel).
+    </div>
+    <p>Let's define the required permissions for a member:</p>
+    <ul>
+      <li>create, edit and delete his own toasts</li>
+      <li>read toasts with allowed access</li>
+      <li>edit and delete his own comments</li>
+      <li>read and create comments on toasts with allowed access</li>
+      <li>view members and friends</li>
+      <li>create and delete his own friends</li>
+      <li>edit friendship if the member is an invitee</li>
+    </ul>
+    <p>
+      And here again one cannot do with only declarative actions.
+      For example, to define a rule for reading allowed toasts,
+      you must define that the toast has "Everyone" or "Friends" access
+      and that the current user is a accepted friend of the toast author.
+      To do this, you need to write your own implementation of the rule.
+    </p>
+    <pre class="code"></pre>
+    <img class="image-view" src="../images/party/front-03.png" alt="Evado Framework Administration Module">
+    <h2>Сonclusion</h2>
+    <p>
+      Register as a new user, go to the Office module and taste all the planned functionality.
+      The party took place, but it was not done without writing code.
+      Even such a relatively simple application has problems that cannot be solved using a universal web interface.
+      If the entity description structure becomes more complex to include more features,
+      then it will yield to imperative code in simplicity and optimality.
+    </p>
+    <p>
+      The <a href="https://github.com/logonok/party-en" target="_blank">finished application</a> can be run in docker.
+    </p>
+    <p>
+      <a href="http://185.185.68.42:8080" target="_blank" class="btn-danger btn">Live demo</a>
+    </p>
+    <p>Log in as Bob:</p>
+    <pre class="code"></pre>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/party.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

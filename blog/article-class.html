@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Article class - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Article class</h1>
+        <p>
+          Select <b>Classes</b> from the side menu.
+          Basic entities of a business app are described here.
+        </p>
+        <p>
+          Create a class with <b>article</b> code name.
+          New tabs and fields will appear on the form after saving the class.
+        </p>
+        <img class="image-view" src="../images/blog/create-class-01.png" alt="Class create">
+        <div class="alert-warning alert">
+          <p>
+            The code name of each data element (class, attribute, view, and others)
+            is the app identifier and must be unique in its context.
+            For example, an attribute name is unique within a class.
+          </p>
+          <p>
+            The name can only consist of characters a-z, A-Z, 0-9 and hyphen.
+            Use a single style of writing code names (recommended is <b>lowerСamelСase</b>,
+            when all words are spelled together with a capital letter except the first).
+          </p>
+        </div>
+        <p>
+          Select a <b>Attributes</b> tab.
+          A panel with available commands will appear when you hover over attribute table.
+        </p>
+        <p>
+          Create a <b>title</b> attribute.
+          The attribute codename follows the same rules as the class name.
+          Additionally, some service attributes may begin with an underscore.
+          When creating an attribute, you must specify its type.
+          It is determined by the stored data.
+          For <b>title</b> attribute, specify <b>String</b> type.
+          An article should always have a title that should not be repeated in other articles.
+          Select <b>Required</b> and <b>Unique</b> checkboxes. They define attribute validation rules.
+        </p>
+        <p>
+          Go to <b>Search</b> tab and check <b>Common searchable</b> and <b>Select searchable</b> boxes.
+          Now articles can be found by searching among titles.
+        </p>
+        <p>
+          Go to <b>Article</b> class.
+          Specify <code>".title"</code> in the <b>Header template</b> field.
+          The template determines article presentation in string form.
+          For example, for drop-down lists and the like.
+          If no template is specified, the object identifier is displayed.
+          <code>".title"</code> value will select data from the title attribute. See
+          <a href="https://github.com/mkhorin/evado-meta-base/blob/master/header/Header.js" target="_blank">Header</a>
+          for more details.
+        </p>
+        <p>
+          Create a <b>content</b> attribute with <b>Text</b> type. It will store article text.
+          The <b>Text</b> type differs from <b>String</b> type in the increased input field
+          and the way of storing in some databases.
+        </p>
+        <p>
+          Create a <b>date</b> attribute with <b>Date</b> type. It will keep the article date.
+        </p>
+        <p>
+          Create a <b>status</b> attribute with <b>String</b> type.
+          It will store article state. Status can only have fixed values.
+          Go to <b>Enums</b> tab and create a new enumeration.
+          On enumeration form, create <b>Items</b> (status elements):
+        </p>
+        <ul>
+          <li><b>draft</b> (Draft)</li>
+          <li><b>published</b> (Published)</li>
+          <li><b>archived</b> (Archived)</li>
+        </ul>
+        <p>
+          Save all changes and export metadata to <code>meta/app</code> folder.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

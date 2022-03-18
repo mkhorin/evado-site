@@ -1,0 +1,57 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фотографии статьи - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Фото статьи</h1>
+        <p>
+          Откройте класс <b>Статья</b>
+          и создайте атрибут <code>mainPhoto</code> (Главное фото) с типом <b>Ссылочный</b>.
+          Этот тип указывает на то, что в данном атрибуте будет храниться связь между объектами.
+          В поле Ссылочный класс выберите класс Фото.
+        </p>
+        <p>
+          Создайте атрибут <code>photos</code> (Фотографии). В нем будут храниться ссылки на фотографии, относящиеся к статье.
+          Укажите тип Ссылочный. В поле Ссылочный класс выберите класс Фото.
+          Установите флажок <b>Множественная связь</b>.
+        </p>
+        <img class="image-view" src="../../images/blog/article-photos-01.png" alt="Фото статьи">
+        <p>
+          Экспортируйте класс и перейдите в Офис. Откройте статью и добавьте (или создайте) несколько фото.
+          Обратите внимание, что одно и тоже Фото может быть добавлено к разным статьям,
+          потому что связь хранится внутри статьи.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>

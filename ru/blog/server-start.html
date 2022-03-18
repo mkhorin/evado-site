@@ -1,0 +1,71 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Запуск сервера - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Запуск сервера</h1>
+        <p>Откройте файл конфигурации приложения и измените параметры компонентов:</p>
+        <p class="filename">config/default.js</p>
+        <pre class="code"></pre>
+        <p>
+          Запуск веб-сервера производите в режиме <b>development</b>, который включает подробное логирование операций.
+          Кроме того, данный режим может отличаться конфигурацией приложения и компонентов.
+          Переопределяемые параметры задаются в <code>config/development.js</code>.
+          Включение режима задается через установку переменной окружения <code>NODE_ENV</code>.
+          Если запуск прозводится из Visual Studio Code, то переменная окружения устанавливается в файле
+          <code>/blog/.vscode/launch.json</code>.
+        </p>
+        <p class="filename">Пример для Linux:</p>
+        <pre class="code"></pre>
+        <p class="filename">Пример для Windows:</p>
+        <pre class="code"></pre>
+        <p>
+          В дальнейшем установка <code>NODE_ENV=development</code>
+          будет подразумеваться по умолчанию при запуске консольных скриптов.
+        </p>
+        <div class="alert-warning alert">
+          <p>Файл конфигурации приложения выбирается на основе значения переменной <code>NODE_ENV</code>.</p>
+          <p>
+            Если указано свойство <code>parent</code>, то конфигурация наследует указанную.
+            Например, <code>development</code> и <code>production</code> наследуют <code>default</code>.
+            Если у приложения (или модуля) есть свойство <code>original</code> (определяется в конструкторе),
+            то конфигурация наследуется из местоположения оригинала.
+          </p>
+        </div>
+        <p>Выполните установку и запуск.</p>
+        <pre class="code"></pre>
+        <p>Приложение будет запущено на <code>http://localhost:3000</code>.</p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>

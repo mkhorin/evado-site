@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Additional relations - Cinema - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Additional relations</h1>
+        <h4>Hall class</h4>
+        <p>
+          Create a calculated <code>seatCounter</code> attribute.
+          It counts the total number of seats in a hall.
+          Specify a <code>["$query","count","seat",null,{"hall":".$key"}]</code> value
+          in <b>Calculated expression</b> field.
+          For more details see
+          <a href="https://github.com/mkhorin/evado-meta-base/blob/master/calc/Calc.js" target="_blank">Calc</a>.
+        </p>
+        <p>
+          Create a multiple back reference <code>seats</code> attribute.
+          It displays a list of seats in a hall.
+          Select <code>seat</code> class in Reference class field.
+          Select <code>hall</code> attribute in Reference attribute field.
+          This attribute stores the link between a seat and a cinema hall.
+        </p>
+        <p>
+          Create a multiple back reference <code>screenings</code> attribute.
+          It displays a list of film screenings in a hall.
+          Select <code>screening</code> class in Reference class field.
+          Select <code>hall</code> attribute in Reference attribute field.
+          This attribute stores the link between a screening and a hall.
+        </p>
+        <p>
+          Create a multiple back reference <code>prices</code> attribute.
+          It displays a list of pricing in a hall.
+          Select <code>pricing</code> class in Reference class field.
+          Select <code>hall</code> in Reference attribute field.
+          This attribute stores the link between a pricing and a hall.
+        </p>
+        <h4>Movie class</h4>
+        <p>
+          Create a multiple back reference <code>screenings</code> attribute.
+          It displays a list of movie screenings.
+          Select <code>screening</code> attribute in Reference class field.
+          Select <code>movie</code> attribute in Reference attribute field.
+          This attribute stores the link between a screening and a movie.
+        </p>
+        <p>
+          Create a multiple back reference <code>tickets</code> attribute.
+          It displays a list of movie tickets.
+          Select <code>ticket</code> class in Reference class field.
+          Select <code>screening</code> in Reference attribute field.
+          This attribute stores the link between a ticket and a screening.
+          Create an <code>Intermediate link</code> to associate a ticket with a movie.
+          Select <code>screening</code> in Reference class field.
+          Select <code>movie</code> in Reference attribute field.
+        </p>
+        <div class="alert-warning alert">
+          If a reference attribute has an intermediate link, then you cannot change its values.
+          Check <b>Read only</b> box.
+        </div>
+        <h4>Pricing class</h4>
+        <p>
+          Create a multiple back reference <code>prices</code> attribute.
+          It displays a list of special prices.
+          Select <code>seatPrice</code> in Reference class field.
+          Select <code>pricing</code> in Reference attribute field..
+        </p>
+        <h4>Screening class</h4>
+        <p>
+          Create a multiple back reference <code>tickets</code> attribute.
+          It displays a list of tickets of a movie screening.
+          Select <code>ticket</code> in Reference class field.
+          Select <code>screening</code> in Reference attribute field.
+        </p>
+        <p>
+          Create a multiple back reference <code>freeSeats</code> attribute.
+          It displays a list of free tickets of a movie screening.
+          Select <code>ticket</code> class in Reference class field.
+          If a relation requires non-standard functionality, then use <b>Filter</b> field.
+          Define a configuration that will be used to fetch related objects
+          <code>{"Class":"component/meta/relation/FreeSeatsFilter"}</code>
+          (<a href="https://github.com/mkhorin/evado-app-cinema/blob/master/component/meta/relation/FreeSeatsFilter.js" target="_blank">source code</a>).
+        </p>
+        <p>Export metadata and check created relations in Office.</p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/cinema.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

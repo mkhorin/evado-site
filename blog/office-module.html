@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Office module - Blog - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Office module</h1>
+        <p>
+          In development mode (<code>NODE_ENV=development</code>),
+          <b>_classes</b> node is displayed in the side menu.
+          This item contains all application classes.
+        </p>
+        <img class="image-view" src="../images/blog/module-office-01.png" alt="Office module">
+        <p>
+          Go to the <b>article</b> menu. The main window displays a list of class objects. Create a new article.
+        </p>
+        <p>
+          Please note that a specific value is required in the <b>status</b> field (draft, published, archive),
+          otherwise an error will occur when trying to save. It is not user-friendly.
+          It is much better to let user choose from a predefined list.
+          To do this, return to Studio, open the <b>status</b> attribute of the <b>article</b> class
+          and set <b>View type</b> filed to <b>Radio list</b>.
+          Export changes directly from the class form.
+        </p>
+        <img class="image-view" src="../images/blog/create-article-01.png" alt="Create article">
+        <div class="alert-warning alert">
+          Office data is associated with metadata through element code names (class, attribute).
+          If you delete attribute or change its code name, Office data will not be available, but will remain in storage.
+          Metadata is an interface for Office data.
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/blog.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

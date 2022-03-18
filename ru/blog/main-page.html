@@ -1,0 +1,63 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Главная страница - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Главная страница</h1>
+        <p>
+          Перейдите на <code>http://localhost:3000</code>.
+          В шаблоне приложения есть несколько базовых модулей
+          доступ к которым вынесен под иконку верхнего меню и на главную страницу.
+        </p>
+        <img class="image-view" src="../../images/blog/main.png" alt="Главная страница">
+        <p>В модуле <b>Студия</b> создается структура бизнес-логики приложения (метаданные) - сущности и связи между ними.</p>
+        <p>В модуле <b>Офис</b> структура наполняется данными - это базовый вариант эксплуатации приложения.</p>
+        <p>В модуле <b>Администрирование</b> происходит контроль и управление приложением.</p>
+        <p>В модуле <b>Аккаунт</b> отображаются личные данные пользователя.
+        </p>
+        <div class="alert-warning alert">
+          Подключаемые модули описываются в секции <code>modules</code> файла конфигурации <code>config/default.js</code>.
+        </div>
+        <p>
+          Кроме вышеуказанных модулей есть служебный модуль <b>API</b>, который скрыт из пользовательской навигации,
+          но доступен для AJAX-запросов к приложению.
+        </p>
+        <p>
+          По умолчанию доступ к модулям ограничен ролью <b>Администратор</b>,
+          которую имеет единственный пользователь системы <b>Adam</b>. Данные для входа:
+        </p>
+        <pre class="code"></pre>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>

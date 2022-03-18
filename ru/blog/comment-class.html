@@ -1,0 +1,84 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Класс Комментарий - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Класс Комментарий</h1>
+        <p>
+          Создайте класс <code>comment</code>.
+          В нем будут храниться комментарии пользователей к статьям.
+        </p>
+        <p>
+          Создайте атрибут <code>name</code> (Имя) с типом Строка.
+          Он будет хранить имя комментатора. Установите флажок <b>Обязательный</b>.
+        </p>
+        <p>
+          Создайте атрибут <code>email</code> с типом Строка.
+          Он будет хранить электронный адрес комментатора.
+          Установите флажок <b>Обязательный</b>.
+          На форме атрибута перейдите на вкладку <b>Валидация</b> и добавьте валидатор <b>Email</b>.
+          Он будет проверять строку на соответствие формату электронного адреса.
+        </p>
+        <p>
+          Создайте атрибут <code>content</code> (Содержимое) с типом Текст.
+          Он будет хранить текст комментария.
+          Установите флажок <b>Обязательный</b>.
+          На форме атрибута перейдите на вкладку <b>Валидация</b> и добавьте валидатор <b>Строка</b>.
+          Установите параметр <b>Максимальная длина</b> равным 256 символов.
+        </p>
+        <p>
+          Создайте атрибут <code>article</code> (Статья) с типом Ссылочный.
+          Он будет хранить связь комментария со статьей. В поле Ссылочный класс выберите класс Статья.
+          Установите флажок <b>Обязательный</b>.
+        </p>
+        <div class="alert-warning alert">
+          Тип <b>Обратная ссылка</b> определяет связь через атрибут ссылочного класса.
+          Если фотографии статьи извлекаются по ссылкам, которые хранятся в самой статье,
+          то комментарии статьи извлекаются по ссылке на статью, которая хранится в комментарии.
+        </div>
+        <p>
+          Откройте класс Статья и создайте атрибут <code>comments</code> (Комментарии)
+          с типом Обратная ссылка.
+          В поле Ссылочный класс выберите класс Комментарий.
+          В поле Ссылочный атрибут выберите атрибут Статья.
+          Установите флажок <b>Множественная связь</b>. В статье может быть много комментариев.
+          Уберите флажки команд <b>Добавить</b> и <b>Убрать</b>,
+          потому что комментрий не может быть привязн к другой статье.
+        </p>
+        <p>
+          Экспортируйте метаданные и перейдите в Офис. Создайте статью и добавьте к ней комментарии.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>

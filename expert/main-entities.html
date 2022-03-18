@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intro - Expert System - Evado Declarative Node.js Framework</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Main entities</h1>
+        <p>
+          Go to Studio module and create main app classes.
+        </p>
+        <p>
+          First of all, create an Entity class.
+          This is the main element of the knowledge base, which will be the goal of solving our expert system.
+          Add attributes Name and Picture.
+        </p>
+        <p>
+          Entities differ from each other not only by their name, but also, most importantly, by their attributes.
+          To describe the attributes, create a Atribute class and add a string attribute Name to it.
+        </p>
+        <p>
+          Now go back to the Entity class and create a Attributes reference attribute that will store references
+          to all attributes related to the entity.
+        </p>
+        <p>
+          Go to the Attribute class and create a back reference to the Entities.
+          A back reference is not stored in the database, but is calculated based on the specified relationship.
+          In this case, it will be possible to get all the entities that have this attribute.
+        </p>
+        <p>
+          Create a Question class.
+          Add a Active logical attribute, which allows you to include or exclude a question from the app without having to delete it.
+          Add a string attribute for the content of the question.
+        </p>
+        <img class="image-view" src="../images/expert/studio-01.png" alt="Export app classes">
+        <p>
+          Next, create a Response class.
+          Add a Text string attribute for the response content.
+          Add a reference attribute of the Attribute, which will contain references to the properties of entities corresponding to this response.
+          For example, the question "What does an animal eat?" it has two answers - "Meat" and "Plants".
+          The answer "Meat" refers to the attribute "Carnivorous" and the answer "Plants" refers to the attribute "Herbivorous".
+          Add a logical attribute Exception, which changes the value of the attribute list.
+          An answer with an exception implies that all attributes except those specified in the list correspond to it.
+        </p>
+        <p>
+          Go to the Question class and create a Answers reference attribute for the list of valid answers to a question.
+          In addition, to be able to select several answers at once, create a logical attribute Multiple.
+        </p>
+        <p>
+          The metadata has been created. Export them to the application via the button on the top panel.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../vendor/highlight/highlight.pack.js"></script>
+<script src="../js/expert.js"></script>
+<script src="../js/common.js"></script>
+
+</body>
+</html>

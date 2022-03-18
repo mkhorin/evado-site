@@ -1,0 +1,76 @@
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Навигация - Блог - Декларативный Node.js фреймворк Evado</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/highlight/styles/default.css">
+  <link rel="stylesheet" href="../../css/common.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <nav class="navbar navbar-inverse navbar-target"></nav>
+
+  <article class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Навигация</h1>
+        <p>
+          В модуле Офисе в режиме <code>development</code> все классы доступны как есть (при наличии разрешений).
+          Однако удобнее иметь определенное иерархическое меню доступа к классам, отвечающее функциональности приложения.
+          В нем можно задать порядок расположения классов, группировку, отображение по требованию
+          или фильтрацию объектов по различным критериям.
+        </p>
+        <div class="alert-warning alert">
+          Навигация - это <a href="https://github.com/mkhorin/evado-meta-navigation" target="_blank">отдельная модель метаданных</a>,
+          использующаяся для создания удобного пользовательского меню.
+        </div>
+        <p>
+          Данные навигации состоят из секций и пунктов.
+          <b>Секция</b> - это набор пунктов меню, располагаемых в определенном порядке.
+          Например, секция <code>main</code> отвечает за формирование бокового меню в модуле Офис.
+          <b>Пункт</b> - это ссылка на страницу сайта.
+          Каждый пункт может иметь дочерние пункты, формируя древовидную иерархию меню.
+        </p>
+        <p>
+          Перейдите в Студию и выберите в боковом меню <b>Секции навигации</b>.
+          Создайте секцию <code>main</code>. Создайте пункт <code>articles</code> (Статьи).
+          Это будет родительский пункт для списков статей в различных статусах.
+          Перейдите на вкладку <b>Дочерние пункты</b> и создайте пункт <code>publicArticles</code> (Публичные статьи).
+          В поле <b>Класс</b> выберите Статья, а в поле <b>Представление</b> выберите Публичный список.
+        </p>
+        <div class="alert-warning alert">
+          Кодовое имя пункта должно быть уникальным внутри секции.
+        </div>
+        <p>
+          Создайте еще один дочерний пункт <code>allArticles</code> (Все статьи),
+          в котором укажите класс без представления,
+          чтобы пользователь мог получить доступ ко всем статьям, в любом статусе.
+        </p>
+        <p>
+          Экспортируйте метаданные и перейдите в Офис.
+          В боковом меню появятся пункты главной секции навигации.
+        </p>
+      </div>
+    </div>
+  </article>
+
+</div>
+<footer class="footer footer-inverse">
+  <div class="container mt20">
+    <p class="text-center">Copyright @ 2022 Maxim Khorin</p>
+  </div>
+</footer>
+
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../vendor/highlight/highlight.pack.js"></script>
+<script src="../../js/blog.js"></script>
+<script src="../../js/common-ru.js"></script>
+<script src="../../js/common.js"></script>
+
+</body>
+</html>
